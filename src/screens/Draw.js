@@ -89,7 +89,11 @@ export default class example extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={[{flex: 1, flexDirection: 'row'},Platform.OS === 'ios' ? {paddingTop: 20} : null]}>
+        <View
+          style={[
+            {flex: 1, flexDirection: 'row'},
+            Platform.OS === 'ios' ? {paddingTop: 20} : null,
+          ]}>
           <RNSketchCanvas
             containerStyle={{backgroundColor: 'transparent', flex: 1}}
             canvasStyle={{backgroundColor: 'transparent', flex: 1}}
@@ -99,19 +103,19 @@ export default class example extends Component {
             text={[
               {
                 text: this.state.textDesc,
-                fontSize: 60,
+                fontSize: this.state.fontSize ? this.state.fontSize * 30 : 20,
                 position: {x: 0.5, y: 0.05},
                 anchor: {x: 0.5, y: 0},
                 coordinate: 'Ratio',
-                overlay: 'SketchOnText',
-                fontColor: 'black',
+                overlay: 'TextOnSketch',
+                fontColor: this.state.fontColor || 'black',
                 alignment: 'Center',
                 lineHeightMultiple: 1,
               },
             ]}
             CanvasText={{
-              text: 'TEXT',
-              font: '',
+              text: ['TEXT','bh'],
+              // font: '',
               fontSize: 20,
               fontColor: 'red',
               overlay: 'TextOnSketch',
@@ -140,9 +144,7 @@ export default class example extends Component {
               // String(this.props.imageURL).replace('file://', '/private'),
               directory: '',
               mode: 'AspectFit',
-              
             }}
-            
             defaultStrokeIndex={0}
             defaultStrokeWidth={5}
             closeComponent={
@@ -171,16 +173,21 @@ export default class example extends Component {
               />
             )}
             strokeSelectedComponent={(color, index, changed) => {
+              this.state.fontColor !== color
+                ? this.setState({fontColor: color})
+                : null;
               return (
                 <View
                   style={[
                     {backgroundColor: color, borderWidth: 2},
+
                     styles.strokeColorButton,
                   ]}
                 />
               );
             }}
             strokeWidthComponent={(w) => {
+              this.state.fontSize !== w && this.state.textInputFocussed  ? this.setState({fontSize: w}) : null;
               return (
                 <View style={styles.strokeWidthButton}>
                   <View
@@ -204,10 +211,9 @@ export default class example extends Component {
               console.log('savingPrefernce');
               return {
                 folder: true ? 'RNSketchCanvas' : null,
-                filename:
-                 true
-                    ? String(Math.ceil(Math.random() * 100000000))
-                    : null,
+                filename: true
+                  ? String(Math.ceil(Math.random() * 100000000))
+                  : null,
                 transparent: false,
                 imageType: 'png',
                 // transparent: true,
@@ -220,7 +226,9 @@ export default class example extends Component {
           />
         </View>
         <Input
-        placeholder="Type Here..."
+          placeholder="Type Here..."
+          onFocus={()=>this.setState({textInputFocussed:true})}
+          onSubmitEditing={()=>this.setState({textInputFocussed:false})}
           value={this.state.textDesc}
           onChangeText={(textDesc) => this.setState({textDesc})}></Input>
       </View>

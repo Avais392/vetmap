@@ -12,7 +12,7 @@ import ImageScreen from './screens/ImageScreen';
 import Splash from './screens/Splash';
 import Auth from './screens/Auth';
 import Draw from './screens/Draw';
-import Draw2 from './screens/Draw2';
+import Draw2 from './screens/Draw2'
 // import AboutUsScreen from './screens/AboutUs'
 
 // const InboxIcon = () => {
@@ -44,8 +44,8 @@ const RouterComponent = () => {
           titleStyle={{textAlign: 'center', flex: 1}}
 
         /> */}
-
-        <Scene key="Splash" component={Splash} />
+        
+        <Scene key="Splash" initial={true} component={Splash}  />
         <Scene key="Auth" component={Auth} />
         <Scene key="SavedPatients" component={SavedPatients} />
         <Scene key="Diagnose" component={Diagnose} />
@@ -55,7 +55,7 @@ const RouterComponent = () => {
         <Scene key="Home" component={HomeScreen} />
         <Scene key="Image" component={ImageScreen} />
         <Scene key="Draw" component={Draw} />
-        <Scene key="Draw2" component={Draw2} initial={true} />
+         <Scene key="Draw2" component={Draw2} />
       </Scene>
     </Router>
   );
