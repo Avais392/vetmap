@@ -8,9 +8,9 @@ import GlobalFont from 'react-native-global-font';
 import {createStore, applyMiddleware} from 'redux';
 
 import Router from './Router';
+console.disableYellowBox = true;
 class App extends Component {
   async componentDidMount() {
-   
     // let fontName = 'TrajanPro-Regular';
     // GlobalFont.applyGlobal(fontName);
   }

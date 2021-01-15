@@ -23,7 +23,10 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-
+import {LogBox} from 'react-native';
+console.disableYellowBox = true;
+//Ignore all log notifications
+LogBox.ignoreAllLogs();
 const App: () => React$Node = () => {
   return (
     <>
