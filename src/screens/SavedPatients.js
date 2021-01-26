@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useCallback} from 'react';
 import {
   Animated,
   Text,
@@ -34,8 +34,6 @@ import Mailer from 'react-native-mail';
 const {width, height} = Dimensions.get('window');
 
 import ViewShot from 'react-native-view-shot';
-
-import {DynamicCollage, StaticCollage} from 'react-native-images-collage';
 
 class SavedPatientsScreen extends Component {
   constructor(props) {
@@ -150,6 +148,7 @@ class SavedPatientsScreen extends Component {
   };
   myAsyncPDFFunction = async (item) => {
     console.log(Object.values(item.photos), '345');
+    console.log(item, '312312');
     this.setState({
       showText: true,
       modalVisible: true,
@@ -274,6 +273,28 @@ class SavedPatientsScreen extends Component {
     );
   };
 
+  renderItem = ({item, index, drag, isActive}) => {
+    return (
+      <TouchableOpacity
+        style={{
+          height: 100,
+          width: 100,
+          backgroundColor: isActive ? 'blue' : item.backgroundColor,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+        onLongPress={drag}>
+        <Text
+          style={{
+            fontWeight: 'bold',
+            color: 'white',
+            fontSize: 32,
+          }}>
+          {item.label}
+        </Text>
+      </TouchableOpacity>
+    );
+  };
   render() {
     return (
       <>
@@ -384,15 +405,10 @@ class SavedPatientsScreen extends Component {
             </View>
           </ScrollView>
         ) : (
-          <View
-            style={{
-              flex: 1,
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
+          <>
             {this.state.showText == true ? (
               <>
-                <Text style={{fontSize: 20, fontWeight: 'bold'}}>
+                {/* <Text style={{fontSize: 20, fontWeight: 'bold'}}>
                   Confirm your Image Placements
                 </Text>
                 <Text
@@ -402,11 +418,11 @@ class SavedPatientsScreen extends Component {
                     marginBottom: 20,
                   }}>
                   Drag images according to your need
-                </Text>
+                </Text> */}
               </>
             ) : null}
             <ViewShot ref="viewShot" options={{format: 'jpg', quality: 0.9}}>
-              <DynamicCollage
+              {/* <DynamicCollage
                 height={Dimensions.get('window').height - 200}
                 width={Dimensions.get('window').width}
                 images={this.state.collageImages}
@@ -439,14 +455,186 @@ class SavedPatientsScreen extends Component {
                   borderColor: 'transparent',
                   borderWidth: 3,
                 }}
+              /> */}
+              {/* <DraggableFlatList
+                data={this.state.data}
+                renderItem={this.renderItem}
+                keyExtractor={(item, index) => `draggable-item-${item.key}`}
+                scrollPercent={5}
+                //  onMoveEnd={({data}) => this.setState({data})}
+                //  numColumns={2}
+                inverted={false}
+                onDragEnd={({data}) => this.setState(data)}
+              /> */}
+              {/* <View
+                style={{
+                  backgroundColor: 'red',
+                  justifyContent: 'center',
+                  alignContent: 'center',
+                }}>
+                <Image
+                  source={{uri: this.state.collageImages[0]}}
+                  style={{width: width, height: 300}}
+                  resizeMode={'contain'}></Image>
+              </View>
+
+              <View style={{flexDirection: 'row'}}>
+                <View style={{width: 300, height: 200}}>
+                  <Image
+                    source={{uri: this.state.collageImages[1]}}
+                    style={{width: 200, height: 200}}
+                    resizeMode={'contain'}></Image>
+                </View>
+                <View style={{width: 300, height: 200}}>
+                  <Image
+                    source={{uri: this.state.collageImages[1]}}
+                    style={{width: 200, height: 200}}
+                    resizeMode={'contain'}></Image>
+                </View>
+              </View>
+
+              <View style={{flexDirection: 'row'}}>
+                <View style={{width: 300, height: 200}}>
+                  <Image
+                    source={{uri: this.state.collageImages[1]}}
+                    style={{width: 200, height: 200}}
+                    resizeMode={'contain'}></Image>
+                </View>
+                <View style={{width: 300, height: 200}}>
+                  <Image
+                    source={{uri: this.state.collageImages[1]}}
+                    style={{width: 200, height: 200}}
+                    resizeMode={'contain'}></Image>
+                </View>
+              </View> */}
+
+              <FlatList
+                data={this.state.collageImages}
+                renderItem={({item, index}) => (
+                  console.log(index, '132123'),
+                  (
+                    <View
+                      style={{
+                        flex: 1,
+                        height: index == 4 ? 230 : 230,
+                        borderWidth: 1,
+                        backgroundColor: 'white',
+                      }}>
+                      <Image
+                        source={{uri: item}}
+                        style={{height: 230, width: index == 4 ? '100%' : 200}}
+                        resizeMode={index == 4 ? 'contain' : 'contain'}
+                      />
+                    </View>
+                  )
+                )}
+                //Setting the number of column
+                numColumns={2}
+                keyExtractor={(item, index) => index}
               />
+
+              {/* <View
+                style={{
+                  flex: 1,
+                  flexDirection: 'row',
+                  flexWrap: 'wrap',
+                }}>
+                <View
+                  style={{
+                    //   backgroundColor: 'red',
+                    width: '50%',
+                    height: 300,
+                    marginLeft: 10,
+                    marginTop: 10,
+                    marginRight: 5,
+                  }}>
+                  <Image
+                    source={{uri: this.state.collageImages[1]}}
+                    style={{width: 200, height: 200}}
+                    resizeMode={'contain'}></Image>
+                </View>
+                <View
+                  style={{
+                    //  backgroundColor: 'red',
+                    width: '50%',
+                    height: 300,
+                    marginRight: 10,
+                    marginTop: 10,
+                  }}>
+                  <Image
+                    source={{uri: this.state.collageImages[1]}}
+                    style={{width: 200, height: 200}}
+                    resizeMode={'contain'}></Image>
+                </View>
+              </View> */}
+
+              {/* <View
+                style={{
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  flexDirection: 'row',
+                  flex: 1,
+                }}>
+                <View>
+                  <Image
+                    source={{uri: this.state.collageImages[1]}}
+                    style={{width: 300, height: 300}}
+                    resizeMode={'contain'}></Image>
+                </View>
+                <View>
+                  <Image
+                    source={{uri: this.state.collageImages[1]}}
+                    style={{width: 300, height: 300}}
+                    resizeMode={'contain'}></Image>
+                </View>
+              </View> */}
+
+              {/* <Image
+                source={{uri: this.state.collageImages[0]}}
+                style={{width: '100%', height: 350}}></Image>
+
+              <View
+                style={{
+                  flex: 1,
+                  flexDirection: 'row',
+                  flexWrap: 'wrap',
+                  alignItems: 'flex-start',
+                }}>
+                <View style={{flexDirection: 'row', marginTop: 5}}>
+                  <Image
+                    source={{uri: this.state.collageImages[1]}}
+                    style={{width: 300, height: 300}}
+                    resizeMode={'contain'}></Image>
+
+                  <Image
+                    source={{uri: this.state.collageImages[2]}}
+                    style={{width: 300, height: 300}}
+                    resizeMode={'contain'}></Image>
+                </View>
+
+                <View style={{flexDirection: 'row'}}>
+                  <Image
+                    source={{uri: this.state.collageImages[3]}}
+                    style={{width: 300, height: 300}}
+                    resizeMode={'contain'}></Image>
+
+                  <Image
+                    source={{uri: this.state.collageImages[4]}}
+                    style={{width: 300, height: 300}}
+                    resizeMode={'contain'}></Image>
+                </View>
+              </View> */}
             </ViewShot>
             {this.state.showText == true ? (
               <>
-                <View style={{flexDirection: 'row'}}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}>
                   <Button
                     style={{
-                      ...styles.button,
                       width: width * 0.3,
                       alignSelf: 'flex-end',
                     }}
@@ -480,7 +668,7 @@ class SavedPatientsScreen extends Component {
                 </View>
               </>
             ) : null}
-          </View>
+          </>
         )}
       </>
     );
