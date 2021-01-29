@@ -26,6 +26,8 @@ target 'vetmap' do
   pod 'Firebase/Analytics'
   pod 'RNPermissions', :path => '../node_modules/react-native-permissions'
 
+  pod 'react-native-view-shot', :path => '../node_modules/react-native-view-shot'
+
   target 'vetmapTests' do
     inherit! :complete
     # Pods for testing
