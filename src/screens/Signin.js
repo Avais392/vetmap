@@ -175,7 +175,7 @@ class SigninScreen extends Component {
               Policy
             </Text>
             <Button
-              style={{width: width * 0.9, borderRadius: 20, borderWidth: 2}}
+              style={[{width: width * 0.9, borderRadius: 20, borderWidth: 2},Platform.OS==='ios'?{marginBottom:20}:null]}
               color="green"
               
               title={'START MAPPING'}

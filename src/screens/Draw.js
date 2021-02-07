@@ -88,7 +88,7 @@ export default class example extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={[styles.container,Platform.OS==='ios'?{marginTop:15}:null]}>
         <View
           style={[
             {flex: 1, flexDirection: 'row'},
@@ -225,12 +225,12 @@ export default class example extends Component {
             }}
           />
         </View>
-        <Input
+        {/* <Input
           placeholder="Type Here..."
           onFocus={()=>this.setState({textInputFocussed:true})}
           onSubmitEditing={()=>this.setState({textInputFocussed:false})}
           value={this.state.textDesc}
-          onChangeText={(textDesc) => this.setState({textDesc})}></Input>
+          onChangeText={(textDesc) => this.setState({textDesc})}></Input> */}
       </View>
     );
   }
