@@ -17,7 +17,7 @@ import {
   Alert,
   Modal,
 } from 'react-native';
-
+import RNHTMLtoPDF from 'react-native-html-to-pdf';
 import {Icon, Input} from 'react-native-elements';
 import {Scene, Router, Actions} from 'react-native-router-flux';
 import RNImageToPdf from 'react-native-image-to-pdf';
@@ -147,14 +147,87 @@ class SavedPatientsScreen extends Component {
     );
   };
   myAsyncPDFFunction = async (item) => {
+    // alert('j')
     console.log(Object.values(item.photos), '345');
     console.log(item, '312312');
-    this.setState({
-      showText: true,
-      modalVisible: true,
-      collageImages: Object.values(item.photos),
-      currentVetData: item,
-    });
+    // this.setState({
+    //   // showText: true,
+    //   // modalVisible: true,
+    //   collageImages: Object.values(item.photos),
+    //   currentVetData: item,
+    // });
+    console.log(item, '312312');
+    let options = {
+      html: `<!DOCTYPE html>
+      <html>
+      <style>
+      * {
+        box-sizing: border-box;
+      }
+      
+      body {
+        margin: 0;
+        font-family: Arial;
+      }
+      
+      .header {
+        text-align: center;
+        padding: 32px;
+      }
+      
+      /* Create two equal columns that floats next to each other */
+      .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+      }
+      
+      .column img {
+        margin-top: 12px;
+      }
+      
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      </style>
+      <body  style="width:2480px; height:3508;">
+      
+      <!-- Header -->
+      
+      
+      <!-- Photo Grid -->
+      <div class="row"> 
+      <div class="row">
+       <div style="width:50%; float:left"><div class="header">
+        <h1>Image Grid</h1>
+      </div></div>
+         <img src=${item.photos[0]} style="width:1200px; float:right; height:1000px;">
+        </div>
+        <div class="column">
+        <img src=${item.photos[1]}  style="width:1200px height:1000px;">
+         <img src=${item.photos[2]}  style="width:1200px; height:1000px;">
+        </div>
+        <div class="column">
+        <img src=${item.photos[3]}  style="width:1200px; height:1000px;">
+         <img src=${item.photos[4]}  style="width:1200px; height:1000px;">
+        </div>
+       
+        
+      </div>
+      
+      </body>
+      </html>      
+      `,
+      fileName: 'test',
+      directory: 'Documents',
+    };
+
+    let file = await RNHTMLtoPDF.convert(options)
+    console.log(file.filePath);
+    alert(file.filePath);
     // const fs = RNFetchBlob.fs;
 
     // await RNFetchBlob.config({

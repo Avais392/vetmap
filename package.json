@@ -10,6 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@babel/types": "^7.14.4",
     "@react-native-community/async-storage": "^1.12.0",
     "@react-native-community/toolbar-android": "0.1.0-rc.2",
     "@terrylinla/react-native-sketch-canvas": "^0.8.0",
@@ -20,13 +21,15 @@
     "react-native": "^0.63.3",
     "react-native-drag-text-editor": "0.0.7",
     "react-native-elements": "^2.0.0",
-    "react-native-fs": "^2.16.6",
+    "react-native-fs": "^2.18.0",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-global-font": "^1.0.2",
+    "react-native-html-to-pdf": "^0.9.1",
     "react-native-image-picker": "^2.3.4",
     "react-native-image-to-pdf": "^1.2.0",
     "react-native-mail": "^6.0.0",
     "react-native-permissions": "^2.2.2",
+    "react-native-photo-editor": "^1.0.10",
     "react-native-reanimated": "^1.8.0",
     "react-native-router-flux": "^4.2.0",
     "react-native-screens": "^2.7.0",
@@ -38,7 +41,8 @@
     "react-navigation-stack": "^1.10.3",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "rn-fetch-blob": "^0.12.0"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",

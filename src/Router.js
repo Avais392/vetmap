@@ -45,14 +45,14 @@ const RouterComponent = () => {
 
         /> */}
         
-        <Scene key="Splash" initial={true} component={Splash}  />
-        <Scene key="Auth" component={Auth} />
+        <Scene key="Splash"  component={Splash}  />
+        <Scene key="Auth"  component={Auth} />
         <Scene key="SavedPatients" component={SavedPatients} />
         <Scene key="Diagnose" component={Diagnose} />
         <Scene key="AddPatient" component={AddPatient} />
         <Scene key="Signin" component={Signin} />
         <Scene key="Signup" component={Signup} />
-        <Scene key="Home" component={HomeScreen} />
+        <Scene key="Home" initial={true} component={HomeScreen} />
         <Scene key="Image" component={ImageScreen} />
         <Scene key="Draw" component={Draw} />
          <Scene key="Draw2" component={Draw2} />

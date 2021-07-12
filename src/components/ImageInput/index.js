@@ -15,6 +15,10 @@ import ImagePicker from 'react-native-image-picker';
 import {Scene, Router, Actions} from 'react-native-router-flux';
 import {request, checkMultiple, PERMISSIONS} from 'react-native-permissions';
 import firebase from '../../firebase';
+import RNFS from 'react-native-fs';
+import RNFetchBlob from 'rn-fetch-blob';
+import PhotoEditor from 'react-native-photo-editor'
+
 
 const {width, height} = Dimensions.get('window');
 
@@ -33,7 +37,99 @@ const ImageInput = (props) => {
   } = props;
   const [loading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState('');
+  const openEditor = (uri) => {
+    let photoPath = RNFS.DocumentDirectoryPath + '/photo.jpg';
+    // let binaryFile = Image.resolveAssetSource(require(uri));
+    RNFS.moveFile(uri, photoPath)
+      .then(() => {
+        console.log('FILE WRITTEN!', uri, resp.path(), photoPath);
+      })
+      .catch((err) => {
+        console.log('ERR', err.message);
+      });
+    RNFetchBlob.config({fileCache: true})
+      .fetch('GET', binaryFile.uri)
+      .then((resp) => {
+        console.log(
+          'FILE  tobe WRITTEN!',
+          binaryFile.uri,
+          resp.path(),
+          photoPath,
+        );
+        RNFS.moveFile(resp.path(), photoPath)
+          .then(() => {
+            console.log(
+              'FILE WRITTEN!',
+              binaryFile.uri,
+              resp.path(),
+              photoPath,
+            );
+          })
+          .catch((err) => {
+            console.log(err.message);
+          });
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
 
+  const onChange = (value, property) => {
+    this.setState({[property]: value});
+  };
+  const _onPress = async (uri) => {
+    let photoPath = RNFS.DocumentDirectoryPath + '/photo.jpg';
+   await RNFetchBlob.config({fileCache: true})
+      .fetch('GET', uri)
+      .then((resp) => {
+        console.log('FILE  tobe WRITTEN!',resp.path(),photoPath);
+        RNFS.moveFile(resp.path(), photoPath)
+          .then(() => {
+            console.log('FILE WRITTEN!',resp.path(),photoPath);
+          })
+          .catch((err) => {
+            console.log(err.message);
+          });
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+    PhotoEditor.Edit({
+      path: RNFS.DocumentDirectoryPath + '/photo.jpg',
+      stickers: [
+        'sticker0',
+        'sticker1',
+        'sticker2',
+        'sticker3',
+        'sticker4',
+        'sticker5',
+        'sticker6',
+        'sticker7',
+        'sticker8',
+        'sticker9',
+        'sticker10',
+      ],
+      // hiddenControls: [
+      //   'clear',
+      //   'crop',
+      //   'draw',
+      //   'save',
+      //   'share',
+      //   'sticker',
+      //   'text',
+      // ],
+      colors: undefined,
+      onDone: async (uri) => {
+        console.log('on done',uri);
+        let filePath='file://'+uri;
+        var blob = await uriToBlob(filePath);
+        uploadToFirebase(blob,true)
+      },
+      onCancel: () => {
+        console.log('on cancel');
+      },
+    });
+  };
   const uriToBlob = (uri) => {
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
@@ -52,7 +148,7 @@ const ImageInput = (props) => {
     });
   };
 
-  const uploadToFirebase = (blob) => {
+  const uploadToFirebase = (blob,dontOpenEditor=false) => {
     var storageRef = firebase.storage().ref();
     var id = firebase.database().ref(`/uploads`).push().key;
     var uploadTask = storageRef.child(`uploads/${id}.png`).put(blob, {
@@ -80,11 +176,14 @@ const ImageInput = (props) => {
       function () {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-        uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+        uploadTask.snapshot.ref.getDownloadURL().then(async function (downloadURL) {
           console.log('File available at', downloadURL);
-          setImageUrl(downloadURL);
+         await  setImageUrl(downloadURL);
           props.callback(downloadURL);
-          Actions.push('Draw', {imageURL: downloadURL});
+          if(!dontOpenEditor){
+          _onPress(downloadURL)
+          }
+          // Actions.push('Draw', {imageURL: downloadURL});
           // setValue([id, downloadURL]);
           // setError("");
           console.log('Uploaded');
@@ -128,21 +227,23 @@ const ImageInput = (props) => {
         // setImageUrl(uri);
         // props.callback(uri)
         // alert(String(uri).replace('file://','private/'))
-        String(uri).replace('file://', 'private/');
+        // String(uri).replace('file://', 'private/');
+       
         console.log('uriIn ImageInput', uri);
         props.callback(uri);
-        // var blob = await uriToBlob(uri);
-        Actions.push('Draw', {
-          ...props,
-          label: props.label,
-          imageURL: 'data:image/jpeg;base64,' + response.data,
-          response,
-          // blob: blob,
-          callback: (u) => props.callback(u),
-        });
+        var blob = await uriToBlob(uri);
+        // Actions.push('Draw', {
+        //   ...props,
+        //   label: props.label,
+        //   imageURL: 'data:image/jpeg;base64,' + response.data,
+        //   response,
+        //   // blob: blob,
+        //   callback: (u) => props.callback(u),
+        // });
 
         // props.callback(blob)
-        // await uploadToFirebase(blob);
+        await uploadToFirebase(blob);
+        // console.log('imageURL',imageUrl)
         // props.callback(imageUrl);
         setLoading(false);
       }
