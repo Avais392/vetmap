@@ -16,6 +16,8 @@ import {
   NativeModules,
   Alert,
   Modal,
+  PermissionsAndroid,
+  ToastAndroid,
 } from 'react-native';
 import RNHTMLtoPDF from 'react-native-html-to-pdf';
 import {Icon, Input} from 'react-native-elements';
@@ -28,6 +30,7 @@ import Button from '../components/Button';
 import {COLORS} from '../util/colors';
 import firebase from '../firebase';
 import AsyncStorage from '@react-native-community/async-storage';
+import FileViewer from 'react-native-file-viewer';
 // import RNFetchBlob from 'react-native-fetch-blob';
 import Mailer from 'react-native-mail';
 // import Input from '../components/Input'
@@ -45,6 +48,8 @@ class SavedPatientsScreen extends Component {
       collageImages: [],
       showText: true,
       currentVetData: [],
+      loading: false,
+      path: '',
     };
   }
 
@@ -146,166 +151,241 @@ class SavedPatientsScreen extends Component {
       },
     );
   };
+
+  isPermitted = async () => {
+    if (Platform.OS === 'android') {
+      try {
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+          {
+            title: 'External Storage Write Permission',
+            message: 'VetMap needs access to Storage data',
+          },
+        );
+        return granted === PermissionsAndroid.RESULTS.GRANTED;
+      } catch (err) {
+        alert('Write permission err', err);
+        return false;
+      }
+    } else {
+      return true;
+    }
+  };
+
   myAsyncPDFFunction = async (item) => {
     // alert('j')
-    console.log(Object.values(item.photos), '345');
-    console.log(item, '312312');
-    // this.setState({
+
     //   // showText: true,
     //   // modalVisible: true,
     //   collageImages: Object.values(item.photos),
     //   currentVetData: item,
     // });
-    console.log(item, '312312');
-    let options = {
-      html: `<!DOCTYPE html>
-      <html>
-      <style>
-      * {
-        box-sizing: border-box;
-      }
-      
-      body {
-        margin: 0;
-        font-family: Arial;
-      }
-      
-      .header {
-        text-align: center;
-        padding: 32px;
-      }
-      
-      /* Create two equal columns that floats next to each other */
-      .column {
-        float: left;
-        width: 50%;
-        padding: 10px;
-      }
-      
-      .column img {
-        margin-top: 12px;
-      }
-      
-      /* Clear floats after the columns */
-      .row:after {
-        content: "";
-        display: table;
-        clear: both;
-      }
-      </style>
-      <body  style="width:2480px; height:3508;">
-      
-      <!-- Header -->
-      
-      
-      <!-- Photo Grid -->
-      <div class="row"> 
-      <div class="row">
-       <div style="width:50%; float:left"><div class="header">
-        <h1>Image Grid</h1>
+    if (await this.isPermitted()) {
+      this.setState({loading: true});
+      console.log(item, '312312');
+      let options = {
+        html: `<div style=" margin-left:20px;" > 
+        <h1>Patient Information</h1>
       </div></div>
-         <img src=${item.photos[0]} style="width:1200px; float:right; height:1000px;">
-        </div>
-        <div class="column">
-        <img src=${item.photos[1]}  style="width:1200px height:1000px;">
-         <img src=${item.photos[2]}  style="width:1200px; height:1000px;">
-        </div>
-        <div class="column">
-        <img src=${item.photos[3]}  style="width:1200px; height:1000px;">
-         <img src=${item.photos[4]}  style="width:1200px; height:1000px;">
-        </div>
-       
+        
+      <div style=" margin-left:0px; display:flex; flex-direction:'column';" >
+
+      ${
+        item.name &&
+        `<div style="  padding-left: 10px; padding-right: 10px; float: left; display: flex; flex-direction: row;">
+            <div style="width: 100px !important;text-align: left;">
+              <h6 style="margin-right: 10px;">NAME</h6>
+            </div>
+            <div style="border: 1px; border-style: solid; width: 400px">
+              <p style="margin-left: 10px;">${item.name}</p>
+            </div>
+          </div>`
+      }
+
+      ${
+        item.recordNo &&
+        `<div style="  padding-left: 10px; padding-right: 10px; float: left; display: flex; flex-direction: row;">
+            <div style="width: 100px !important;text-align: left;">
+              <h6 style="margin-right: 10px;">Record #</h6>
+            </div>
+            <div style="border: 1px; border-style: solid; width: 400px">
+              <p style="margin-left: 10px;">${item.recordNo}</p>
+            </div>
+          </div>`
+      }
+
+   
+      
+  </div>
+  <div style=" margin-left:0px;">
+  <div style="background-color:#6699CC; ">
+      <h3>IMAGES</h3>
+  </div>
+</div>
+
+  
+
+${
+  item?.photos
+    ? ` <div style=" width: 100%;" >
+<div style="display: flex; align-items: center; justify-content: center;">
+${
+  item?.photos[0]
+    ? `<div style=" width: 20%; margin: 30px;">
+<img style="width: 200px;  padding: 5px; height: 200px;"  src=${item?.photos[0]} alt="No Image">
+</div>`
+    : `<div></div>`
+}
+
+${
+  item?.photos[1]
+    ? `<div style=" width: 20%; margin: 30px;">
+<img style="width: 200px;  padding: 5px; height: 200px;"  src=${item?.photos[1]} alt="No Image">
+</div>`
+    : `<div></div>`
+}
+
+${
+  item?.photos[2]
+    ? `<div style=" width: 20%; margin: 30px;">
+<img style="width: 200px;  padding: 5px; height: 200px;"  src=${item?.photos[2]} alt="No Image">
+</div>`
+    : `<div></div>`
+}
+</div>
+
+
+<div style="display: flex; align-items: center; justify-content: center;">
+${
+  item?.photos[3]
+    ? `<div style=" width: 20%; margin: 30px;">
+<img style="width: 200px;  padding: 5px; height: 200px;"  src=${item?.photos[3]} alt="No Image">
+</div>`
+    : `<div></div>`
+}
+
+
+
+${
+  item?.photos[4]
+    ? `<div style=" width: 20%; margin: 30px;">
+<img style="width: 200px;  padding: 5px; height: 200px;"  src=${item?.photos[4]} alt="No Image">
+</div>`
+    : `<div></div>`
+}`
+    : `<div></div>`
+}
+
+
+</div>
         
       </div>
       
-      </body>
-      </html>      
+        
       `,
-      fileName: 'test',
-      directory: 'Documents',
-    };
+        fileName: `${item.name} - ${item.recordNo}`,
+        directory: 'docs/vetmap',
+      };
 
-    let file = await RNHTMLtoPDF.convert(options)
-    console.log(file.filePath);
-    alert(file.filePath);
-    // const fs = RNFetchBlob.fs;
+      let file = await RNHTMLtoPDF.convert(options)
+        .then((item) => {
+          console.log(item.filePath);
+          alert('Pdf created successfully');
+          this.setState({path: item.filePath, loading: false});
+          FileViewer.open(item.filePath, {
+            showOpenWithDialog: true,
+          })
+            .then(() => {
+              console.log('success');
+            })
+            .catch((error) => {
+              console.log(error, 'ERROR');
+            });
+        })
+        .catch((e) => {
+          this.setState({loading: false});
+          console.log(e, 'sad');
+        });
 
-    // await RNFetchBlob.config({
-    //   fileCache: true,
-    // })
-    //   .fetch(
-    //     'GET',
-    //     'https://firebasestorage.googleapis.com/v0/b/vetmap-eb11e.appspot.com/o/uploads%2F-MJNJVFO9HiIkXOPV5sp.png?alt=media&token=05cda4e0-a42c-474a-9415-6f86d5d87228',
-    //   )
-    //   // the image is now dowloaded to device's storage
-    //   .then((resp) => {
-    //     // the image path you can use it directly with Image component
-    //     imagePath = resp.path();
-    //     return resp.readFile('base64');
-    //   })
-    //   .then((base64Data) => {
-    //     // here's base64 encoded image
-    //     // console.log('BASE64', base64Data);
-    //     imagePath = base64Data;
-    //     // remove the file from storage
-    //     return fs.unlink(imagePath);
-    //   });
+      // const fs = RNFetchBlob.fs;
 
-    // console.log('BASE64........890', imagePath);
-    // const options = {
-    //   // imagePaths: [
-    //   //   'https://i.pinimg.com/originals/76/0f/37/760f37d6d0ff9ccc6931278c2360cdcd.jpg',
-    //   //   'https://www.highlandernews.org/wp-content/uploads/radar.broly_.toeiAnimation.jpg',
-    //   //   'https://talkiesnetwork.files.wordpress.com/2017/09/broly-dragon-ball-206651-1280x0.jpg?w=930&h=450&crop=1',
-    //   //   'https://i.ytimg.com/vi/1DPGe85-pG4/maxresdefault.jpg',
-    //   //   'https://static2.cbrimages.com/wordpress/wp-content/uploads/2020/04/dragon-ball-broly.jpg',
-    //   // ],
-    //   imagePaths: Object.values(item?.photos),
-    //   name: `${item.name}-${item.recordNo}`,
+      // await RNFetchBlob.config({
+      //   fileCache: true,
+      // })
+      //   .fetch(
+      //     'GET',
+      //     'https://firebasestorage.googleapis.com/v0/b/vetmap-eb11e.appspot.com/o/uploads%2F-MJNJVFO9HiIkXOPV5sp.png?alt=media&token=05cda4e0-a42c-474a-9415-6f86d5d87228',
+      //   )
+      //   // the image is now dowloaded to device's storage
+      //   .then((resp) => {
+      //     // the image path you can use it directly with Image component
+      //     imagePath = resp.path();
+      //     return resp.readFile('base64');
+      //   })
+      //   .then((base64Data) => {
+      //     // here's base64 encoded image
+      //     // console.log('BASE64', base64Data);
+      //     imagePath = base64Data;
+      //     // remove the file from storage
+      //     return fs.unlink(imagePath);
+      //   });
 
-    //   maxSize: {
-    //     // optional maximum image dimension - larger images will be resized
-    //     width: 45,
-    //     height: 45,
-    //   },
-    //   quality: 1, // optional compression paramter
-    // };
-    // const pdf = await RNImageToPdf.createPDFbyImages(options);
+      // console.log('BASE64........890', imagePath);
+      // const options = {
+      //   // imagePaths: [
+      //   //   'https://i.pinimg.com/originals/76/0f/37/760f37d6d0ff9ccc6931278c2360cdcd.jpg',
+      //   //   'https://www.highlandernews.org/wp-content/uploads/radar.broly_.toeiAnimation.jpg',
+      //   //   'https://talkiesnetwork.files.wordpress.com/2017/09/broly-dragon-ball-206651-1280x0.jpg?w=930&h=450&crop=1',
+      //   //   'https://i.ytimg.com/vi/1DPGe85-pG4/maxresdefault.jpg',
+      //   //   'https://static2.cbrimages.com/wordpress/wp-content/uploads/2020/04/dragon-ball-broly.jpg',
+      //   // ],
+      //   imagePaths: Object.values(item?.photos),
+      //   name: `${item.name}-${item.recordNo}`,
 
-    //   // console.log(pdf.filePath, 'erwre');
-    //
-    //   var arrHold = [];
-    //   let save = array.map((item) => {
-    //     ImgToBase64.getBase64String(item)
-    //       .then((base64String) => {
-    //         this.setState({hold: [base64String, ...this.state.hold]});
-    //         arrHold = base64String;
-    //       })
-    //       .catch((err) => console.log(err));
+      //   maxSize: {
+      //     // optional maximum image dimension - larger images will be resized
+      //     width: 45,
+      //     height: 45,
+      //   },
+      //   quality: 1, // optional compression paramter
+      // };
+      // const pdf = await RNImageToPdf.createPDFbyImages(options);
 
-    //     return arrHold;
-    //   });
-    //   console.log(save, 'sadads');
-    //   // console.log(this.state.hold, 'asdasd', arrHold, save);
+      //   // console.log(pdf.filePath, 'erwre');
+      //
+      //   var arrHold = [];
+      //   let save = array.map((item) => {
+      //     ImgToBase64.getBase64String(item)
+      //       .then((base64String) => {
+      //         this.setState({hold: [base64String, ...this.state.hold]});
+      //         arrHold = base64String;
+      //       })
+      //       .catch((err) => console.log(err));
 
-    //   // ImagesMerge.mergeImages(
-    //   //   [
-    //   //     {
-    //   //       uri: arrHold[0],
-    //   //     },
-    //   //     {
-    //   //       uri: arrHold[1],
-    //   //     },
-    //   //   ],
-    //   //   (result) => {
-    //   //     console.log(result);
-    //   //   },
-    //   // );
-    //   this.saveImage(arrHold);
-    //   //  this.handleEmail(pdf.filePath, item);
-    // } catch (e) {
-    //   console.log(e, 'sdfsdf');
-    // }
+      //     return arrHold;
+      //   });
+      //   console.log(save, 'sadads');
+      //   // console.log(this.state.hold, 'asdasd', arrHold, save);
+
+      //   // ImagesMerge.mergeImages(
+      //   //   [
+      //   //     {
+      //   //       uri: arrHold[0],
+      //   //     },
+      //   //     {
+      //   //       uri: arrHold[1],
+      //   //     },
+      //   //   ],
+      //   //   (result) => {
+      //   //     console.log(result);
+      //   //   },
+      //   // );
+      //   this.saveImage(arrHold);
+      //   //  this.handleEmail(pdf.filePath, item);
+      // } catch (e) {
+      //   console.log(e, 'sdfsdf');
+      // }
+    }
   };
 
   saveImage = () => {
