@@ -11,17 +11,17 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		19512622A2945CF9A119E944 /* libPods-vetmap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 104E17EC461A15CA843B9F0B /* libPods-vetmap.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* vetmapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* vetmapTests.m */; };
 		779CE99C7AC0B961B3A3477A /* libPods-vetmap-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6420C1A4E805AA2F54FC9D38 /* libPods-vetmap-tvOSTests.a */; };
-		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		87789016254A444D004DD434 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87789015254A444C004DD434 /* GoogleService-Info.plist */; };
 		87789019254A5AB4004DD434 /* TrajanPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87789017254A5AB3004DD434 /* TrajanPro-Bold.ttf */; };
 		8778901A254A5AB4004DD434 /* TrajanPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87789018254A5AB4004DD434 /* TrajanPro-Regular.ttf */; };
-		948803510214EFBFD9A250AB /* libPods-vetmap-vetmapTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CE759FFD8C19446C5F77DF /* libPods-vetmap-vetmapTests.a */; };
-		D5DA2D5E5DAA8E3097CC918A /* libPods-vetmap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F898B827E3E14375909F7AA /* libPods-vetmap.a */; };
+		87914BB126AB5A8C00F129B8 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87914BB026AB5A8C00F129B8 /* File.swift */; };
+		887A74C22724BD223A3E900C /* libPods-vetmap-vetmapTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB8BD7F55155B6DB7A65478C /* libPods-vetmap-vetmapTests.a */; };
 		E41F222D773284F068994CF4 /* libPods-vetmap-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7871AB1B54FA8267A71C824F /* libPods-vetmap-tvOS.a */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +48,7 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* vetmapTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = vetmapTests.m; sourceTree = "<group>"; };
 		0986C6C9F1304A628C9EF8EA /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		104E17EC461A15CA843B9F0B /* libPods-vetmap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-vetmap.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10723809B7D0B26B5C1C78D0 /* Pods-vetmap-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vetmap-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-vetmap-tvOSTests/Pods-vetmap-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* vetmap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vetmap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = vetmap/AppDelegate.h; sourceTree = "<group>"; };
@@ -61,12 +62,10 @@
 		2D02E4901E0B4A5D006451C7 /* vetmap-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "vetmap-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF723B1CC5B4367997CB34A /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		41CE1BE0234E46B28E60368D /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
-		43CE759FFD8C19446C5F77DF /* libPods-vetmap-vetmapTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-vetmap-vetmapTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4683EE660D31B979A9314679 /* Pods-vetmap-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vetmap-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-vetmap-tvOS/Pods-vetmap-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		501ACF0DA291B48BC8F7387D /* Pods-vetmap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vetmap.release.xcconfig"; path = "Target Support Files/Pods-vetmap/Pods-vetmap.release.xcconfig"; sourceTree = "<group>"; };
 		5B5705375D4CB33BA8CB8E8E /* Pods-vetmap-vetmapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vetmap-vetmapTests.release.xcconfig"; path = "Target Support Files/Pods-vetmap-vetmapTests/Pods-vetmap-vetmapTests.release.xcconfig"; sourceTree = "<group>"; };
 		6420C1A4E805AA2F54FC9D38 /* libPods-vetmap-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-vetmap-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6F898B827E3E14375909F7AA /* libPods-vetmap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-vetmap.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		715F6B84017F4469805E78D5 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		71CB1AD9549D4E8E8CC48BDA /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		7632FA672680438BAEF03EA6 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
@@ -78,12 +77,15 @@
 		87789015254A444C004DD434 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "vetmap/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		87789017254A5AB3004DD434 /* TrajanPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TrajanPro-Bold.ttf"; sourceTree = "<group>"; };
 		87789018254A5AB4004DD434 /* TrajanPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TrajanPro-Regular.ttf"; sourceTree = "<group>"; };
+		87914BAF26AB5A8C00F129B8 /* vetmap-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "vetmap-Bridging-Header.h"; sourceTree = "<group>"; };
+		87914BB026AB5A8C00F129B8 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		8EB21E43D5374F8AB9AB10EB /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		983F4B44983641478FB130E3 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		A0DF1B966047427B8E601826 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		B2176D1B018427FA169640A0 /* Pods-vetmap-vetmapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vetmap-vetmapTests.debug.xcconfig"; path = "Target Support Files/Pods-vetmap-vetmapTests/Pods-vetmap-vetmapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B6F0B37AEBEF7182AFEAA25F /* Pods-vetmap-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vetmap-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-vetmap-tvOSTests/Pods-vetmap-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		BE5AD32424384FC6BA9D14CF /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		CB8BD7F55155B6DB7A65478C /* libPods-vetmap-vetmapTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-vetmap-vetmapTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3E70A11D94342DD862CE0D5 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		ECC229B6780F4582A2B663AD /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -96,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				948803510214EFBFD9A250AB /* libPods-vetmap-vetmapTests.a in Frameworks */,
+				887A74C22724BD223A3E900C /* libPods-vetmap-vetmapTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,7 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5DA2D5E5DAA8E3097CC918A /* libPods-vetmap.a in Frameworks */,
+				19512622A2945CF9A119E944 /* libPods-vetmap.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +157,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				87914BB026AB5A8C00F129B8 /* File.swift */,
+				87914BAF26AB5A8C00F129B8 /* vetmap-Bridging-Header.h */,
 			);
 			name = vetmap;
 			sourceTree = "<group>";
@@ -164,10 +168,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				6F898B827E3E14375909F7AA /* libPods-vetmap.a */,
 				7871AB1B54FA8267A71C824F /* libPods-vetmap-tvOS.a */,
 				6420C1A4E805AA2F54FC9D38 /* libPods-vetmap-tvOSTests.a */,
-				43CE759FFD8C19446C5F77DF /* libPods-vetmap-vetmapTests.a */,
+				104E17EC461A15CA843B9F0B /* libPods-vetmap.a */,
+				CB8BD7F55155B6DB7A65478C /* libPods-vetmap-vetmapTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -258,6 +262,7 @@
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
 				840BD20C8484DA6CE121997C /* [CP] Copy Pods Resources */,
+				4A645EAB6D7CEC0580FF8D00 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -280,6 +285,7 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				9F077922A62880395AA28F71 /* [CP] Copy Pods Resources */,
+				79CC9C9E9432FE918C204CA0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -343,7 +349,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 8S5N9N3559;
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1240;
 						ProvisioningStyle = Automatic;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -392,7 +398,6 @@
 			files = (
 				87789019254A5AB4004DD434 /* TrajanPro-Bold.ttf in Resources */,
 				8778901A254A5AB4004DD434 /* TrajanPro-Regular.ttf in Resources */,
-				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				87789016254A444D004DD434 /* GoogleService-Info.plist in Resources */,
 			);
@@ -488,6 +493,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		4A645EAB6D7CEC0580FF8D00 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-vetmap-vetmapTests/Pods-vetmap-vetmapTests-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-vetmap-vetmapTests/Pods-vetmap-vetmapTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		58D278EF1C2A2F39A69644A7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -508,6 +531,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		79CC9C9E9432FE918C204CA0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-vetmap/Pods-vetmap-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-vetmap/Pods-vetmap-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		840BD20C8484DA6CE121997C /* [CP] Copy Pods Resources */ = {
@@ -534,6 +575,17 @@
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
+				"${PODS_ROOT}/iOSPhotoEditor/Photo Editor/Photo Editor/Base.lproj/LaunchScreen.storyboard",
+				"${PODS_ROOT}/iOSPhotoEditor/Photo Editor/Photo Editor/ColorCollectionViewCell.xib",
+				"${PODS_ROOT}/iOSPhotoEditor/Photo Editor/Photo Editor/EmojiCollectionViewCell.xib",
+				"${PODS_ROOT}/iOSPhotoEditor/Photo Editor/Photo Editor/icomoon.ttf",
+				"${PODS_ROOT}/iOSPhotoEditor/Photo Editor/Photo Editor/LaunchScreen.storyboard",
+				"${PODS_ROOT}/iOSPhotoEditor/Photo Editor/Photo Editor/PhotoCropEditorBorder.png",
+				"${PODS_ROOT}/iOSPhotoEditor/Photo Editor/Photo Editor/PhotoCropEditorBorder@2x.png",
+				"${PODS_ROOT}/iOSPhotoEditor/Photo Editor/Photo Editor/PhotoCropEditorBorder@3x.png",
+				"${PODS_ROOT}/iOSPhotoEditor/Photo Editor/Photo Editor/PhotoEditorViewController.xib",
+				"${PODS_ROOT}/iOSPhotoEditor/Photo Editor/Photo Editor/StickerCollectionViewCell.xib",
+				"${PODS_ROOT}/iOSPhotoEditor/Photo Editor/Photo Editor/StickersViewController.xib",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -554,6 +606,16 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/LaunchScreen.storyboardc",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ColorCollectionViewCell.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EmojiCollectionViewCell.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/icomoon.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PhotoCropEditorBorder.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PhotoCropEditorBorder@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PhotoCropEditorBorder@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PhotoEditorViewController.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StickerCollectionViewCell.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StickersViewController.nib",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -584,6 +646,17 @@
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
+				"${PODS_ROOT}/iOSPhotoEditor/Photo Editor/Photo Editor/Base.lproj/LaunchScreen.storyboard",
+				"${PODS_ROOT}/iOSPhotoEditor/Photo Editor/Photo Editor/ColorCollectionViewCell.xib",
+				"${PODS_ROOT}/iOSPhotoEditor/Photo Editor/Photo Editor/EmojiCollectionViewCell.xib",
+				"${PODS_ROOT}/iOSPhotoEditor/Photo Editor/Photo Editor/icomoon.ttf",
+				"${PODS_ROOT}/iOSPhotoEditor/Photo Editor/Photo Editor/LaunchScreen.storyboard",
+				"${PODS_ROOT}/iOSPhotoEditor/Photo Editor/Photo Editor/PhotoCropEditorBorder.png",
+				"${PODS_ROOT}/iOSPhotoEditor/Photo Editor/Photo Editor/PhotoCropEditorBorder@2x.png",
+				"${PODS_ROOT}/iOSPhotoEditor/Photo Editor/Photo Editor/PhotoCropEditorBorder@3x.png",
+				"${PODS_ROOT}/iOSPhotoEditor/Photo Editor/Photo Editor/PhotoEditorViewController.xib",
+				"${PODS_ROOT}/iOSPhotoEditor/Photo Editor/Photo Editor/StickerCollectionViewCell.xib",
+				"${PODS_ROOT}/iOSPhotoEditor/Photo Editor/Photo Editor/StickersViewController.xib",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -604,6 +677,16 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/LaunchScreen.storyboardc",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ColorCollectionViewCell.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EmojiCollectionViewCell.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/icomoon.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PhotoCropEditorBorder.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PhotoCropEditorBorder@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PhotoCropEditorBorder@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PhotoEditorViewController.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StickerCollectionViewCell.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StickersViewController.nib",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -686,6 +769,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				87914BB126AB5A8C00F129B8 /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -727,6 +811,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B2176D1B018427FA169640A0 /* Pods-vetmap-vetmapTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -750,6 +835,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B5705375D4CB33BA8CB8E8E /* Pods-vetmap-vetmapTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = vetmapTests/Info.plist;
@@ -774,11 +860,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 8S5N9N3559;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = vetmap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -787,6 +874,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = edu.ufl.vetmap;
 				PRODUCT_NAME = vetmap;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "vetmap-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -801,10 +889,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 8S5N9N3559;
 				INFOPLIST_FILE = vetmap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -813,6 +902,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = edu.ufl.vetmap;
 				PRODUCT_NAME = vetmap;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "vetmap-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

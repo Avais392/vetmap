@@ -46,7 +46,10 @@ const RouterComponent = () => {
         /> */}
         
         <Scene key="Splash"  component={Splash}  />
-        <Scene key="Auth"  component={Auth} />
+        <Scene key="Auth"  component={Auth} >
+
+          
+        </Scene>
         <Scene key="SavedPatients" component={SavedPatients} />
         <Scene key="Diagnose" component={Diagnose} />
         <Scene key="AddPatient" component={AddPatient} />
