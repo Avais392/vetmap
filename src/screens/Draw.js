@@ -6,13 +6,16 @@ import {
   View,
   Alert,
   Platform,
+  Dimensions
 } from 'react-native';
 import firebase from '../firebase';
-import RNSketchCanvas from '@terrylinla/react-native-sketch-canvas';
+import RNSketchCanvas from '../@terrylinla/react-native-sketch-canvas';
 import AsyncStorage from '@react-native-community/async-storage';
 import {Input} from 'react-native-elements';
 import {Scene, Router, Actions} from 'react-native-router-flux';
+// import DragTextEditor from 'react-native-drag-text-editor';
 var RNFS = require('react-native-fs');
+const WINDOW = Dimensions.get('window');
 export default class example extends Component {
   constructor(props) {
     super(props);
@@ -225,12 +228,35 @@ export default class example extends Component {
             }}
           />
         </View>
-        {/* <Input
+        {/* <DragTextEditor
+          minWidth={100}
+          minHeight={100}
+          w={200}
+          h={200}
+          x={WINDOW.width/4}
+          y={WINDOW.height/3}
+          FontColor={"#000000"}
+          LineHeight={15}
+          TextAlign={"left"}
+          LetterSpacing={0}
+          FontSize={15}
+          isDraggable={true}
+          isResizable={true}
+          TopRightAction={()=>console.log("-Top Right Pressed")}
+          centerPress={()=>console.log("-Center Pressed")} 
+          onDragStart={()=>console.log("-Drag Started")}
+          onDragEnd={()=>console.log("- Drag ended")}
+          onDrag={()=>console.log("- Dragging...")}
+          onResizeStart={()=>console.log("- Resize Started")}
+          onResize={()=>console.log("- Resizing...")}
+          onResizeEnd={()=>console.log("- Resize Ended")}
+        />  */}
+        <Input
           placeholder="Type Here..."
           onFocus={()=>this.setState({textInputFocussed:true})}
           onSubmitEditing={()=>this.setState({textInputFocussed:false})}
           value={this.state.textDesc}
-          onChangeText={(textDesc) => this.setState({textDesc})}></Input> */}
+          onChangeText={(textDesc) => this.setState({textDesc})}></Input>
       </View>
     );
   }

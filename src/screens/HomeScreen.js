@@ -97,15 +97,15 @@ class HomeScreen extends Component {
   render() {
     return (
       <View style={{width: '100%', flex: 1, height: height}}>
-        <TouchableOpacity onPress={this._onPress} style={{height: 300}}>
+        {/* <TouchableOpacity onPress={this._onPress} style={{height: 300}}>
           <Text>Click</Text>
-        </TouchableOpacity>
-        <Image
+        </TouchableOpacity> */}
+        {/* <Image
           style={{height: 300, width: 300}}
           source={{
             uri:
               'file:///storage/emulated/0/Pictures/PhotoEditorSDK/IMG_20210531_072555.jpg',
-          }}></Image>
+          }}></Image> */}
         {true && (
           <>
             {/* <StatusBar barStyle="dark-content" /> */}

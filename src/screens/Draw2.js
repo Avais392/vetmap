@@ -92,7 +92,7 @@ export default class example extends Component {
         <View style={[{flex: 1, flexDirection: 'row'},Platform.OS === 'ios' ? {paddingTop: 20} : null]}>
           <RNSketchCanvas
             containerStyle={{backgroundColor: 'transparent', flex: 1}}
-            canvasStyle={{backgroundColor: 'transparent', flex: 1}}
+            canvasStyle={{backgroundColor: 'transparent', flex: 1,height:'300px',borderWidth:3}}
             onClosePressed={() => {
               Actions.pop();
             }}
@@ -221,6 +221,7 @@ export default class example extends Component {
         </View>
         <Input
         placeholder="Type Here..."
+        style={{zIndex:10,backgroundColor:'#ddd',bottom:200}}
           value={this.state.textDesc}
           onChangeText={(textDesc) => this.setState({textDesc})}></Input>
       </View>
@@ -261,5 +262,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 5,
+    zIndex:5
   },
 });

@@ -58,7 +58,7 @@ const RouterComponent = () => {
         <Scene key="Home" initial={true} component={HomeScreen} />
         <Scene key="Image" component={ImageScreen} />
         <Scene key="Draw" component={Draw} />
-         <Scene key="Draw2" component={Draw2} />
+         {/* <Scene key="Draw2" component={Draw2} /> */}
       </Scene>
     </Router>
   );
