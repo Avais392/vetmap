@@ -8,7 +8,7 @@ import {
   Platform,
 } from 'react-native';
 import firebase from '../firebase';
-import RNSketchCanvas from '@terrylinla/react-native-sketch-canvas';
+import RNSketchCanvas from '../@terrylinla/react-native-sketch-canvas';
 import AsyncStorage from '@react-native-community/async-storage';
 import {Input} from 'react-native-elements';
 import {Scene, Router, Actions} from 'react-native-router-flux';

@@ -204,7 +204,7 @@ export default class RNSketchCanvas extends React.Component {
   render() {
     return (
       <View style={this.props.containerStyle}>
-        <View style={{ flexDirection: 'row',top:70 ,zIndex:10}}>
+        <View style={{ flexDirection: 'row',top:50 ,zIndex:10}}>
           <View style={{ flexDirection: 'row', flex: 1, justifyContent: 'flex-start' }}>
             {this.props.closeComponent && (
               <TouchableOpacity onPress={() => { this.props.onClosePressed() }}>
@@ -260,7 +260,7 @@ export default class RNSketchCanvas extends React.Component {
           permissionDialogTitle={this.props.permissionDialogTitle}
           permissionDialogMessage={this.props.permissionDialogMessage}
         />
-        <View style={{ flexDirection: 'row' ,bottom:70,zIndex:10}}>
+        <View style={{ flexDirection: 'row' ,bottom:50,zIndex:10}}>
           <FlatList
             data={this.props.strokeColors}
             extraData={this.state}
